@@ -18,19 +18,19 @@
 sudo setenforce 0 # temporaire
 sudo sed -i 's/enforcing/permissive/g' /etc/selinux/config # permanent
 
-`Selinux désactiver ok`
++ `Selinux désactiver ok`
 
 Mise à jour des dépôts
 sudo yum update -y
 
-`good`
++ `good`
 
 Installation de dépôts additionels
 sudo yum install -y epel-release
 
 Installation faite, jai juste du mettre ma VM en réseau car il n'y avait pas de réseau 
 
-`Installation Terminé !`
++ `Installation Terminé !`
 
  Installation de plusieurs paquets réseau dont on se sert souvent
 sudo yum install -y traceroute bind-utils tcpdump nc nano
