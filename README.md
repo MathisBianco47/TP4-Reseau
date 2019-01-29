@@ -83,3 +83,16 @@ on ne touche pas au `DHCP`
 # 2. Création des VMs
 
 ---
+**Création de nouvelles VMs**
+
++ VM cliente
+
++ VM serveur
+
++ VM routeur
+
+**Création de nouvelles host-only :**
+
++10.1.0.254
+
++ 10.2.0.254
