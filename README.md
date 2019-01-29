@@ -61,6 +61,8 @@ Création des VMs
 
 **configuration des Vms**
 
+---
+
 Créez les réseaux host-only suivants :
 
 + le "réseau 1" ou net1 : 10.1.0.0/24
@@ -77,3 +79,7 @@ j'ai crée deux cartes réseau
 + 10.2.0.1
 
 on ne touche pas au `DHCP`
+
+# 2. Création des VMs
+
+---
