@@ -93,6 +93,10 @@ on ne touche pas au `DHCP`
 
 **Création de nouvelles host-only :**
 
+`carte réseau`
+
 + 10.1.0.254
 
 + 10.2.0.254
+
+`client  <--net1--> router <--net2--> server`
