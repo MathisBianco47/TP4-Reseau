@@ -3,6 +3,9 @@
 
 **Préparation d'une VM "patron"**
 
+J'ai supprime ma première VM, j'ai crée une nouvelle j'ai effectue cette configuration 
+
+**configuration VM**
 + créer une VM
 + 512 Mo RAM
 + 1 CPU
@@ -11,8 +14,6 @@
 + Stockage
 + disque de 8Go
 + .iso de CentOS 7 (sur le "contrôleur IDE")
-
-**configuration VM**
 
 **Désactivation de SELinux**
 
@@ -50,6 +51,8 @@ sudo nano /etc/sysconfig/network-scripts/ifcfg-enp0s3
 
 **Eteindre la machine**
 sudo shutdown now
+
++`Lancement`
 
 
 # I. Mise en place du lab
