@@ -69,3 +69,11 @@ Créez les réseaux host-only suivants :
 + le "réseau 2" ou net2 : 10.2.0.0/24
 + la carte réseau de l'hôte doit porter l'IP 10.2.0.1
 + PAS de DHCP
+
+Je me suis déplacer dans "fichier" ensuite "gestionnaire de réseau hôtes"
+
+j'ai crée deux cartes réseau 
++ 10.1.0.1
++ 10.2.0.1
+
+on ne touche pas au `DHCP`
