@@ -56,3 +56,16 @@ sudo shutdown now
 
 
 # I. Mise en place du lab
+
+Création des VMs
+
+**configuration des Vms**
+
+Créez les réseaux host-only suivants :
+
++ le "réseau 1" ou net1 : 10.1.0.0/24
++ la carte réseau de l'hôte doit porter l'IP 10.1.0.1
++ PAS de DHCP
++ le "réseau 2" ou net2 : 10.2.0.0/24
++ la carte réseau de l'hôte doit porter l'IP 10.2.0.1
++ PAS de DHCP
