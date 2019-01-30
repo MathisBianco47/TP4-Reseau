@@ -120,3 +120,21 @@ une fois fait, vous avez vos trois fenêtres SSH ouvertes, une dans chaque machi
  + Remplissage du fichier /etc/hosts
  client1 ping router1.tp4 sur l'IP 10.1.0.254
  server1 ping router1.tp4 sur l'IP 10.2.0.254
+ 
+ 
+ Désactivation des IPs statiques 
+
+j'ai executer la commande `ip a`
+
+j'ai reperer le nom de l'interface `enp0s3`
+
+j'ai modifie le fichier correspondant à l'interface donc 
++ je rentre dans le dossier `/etc/sysconfig/network-scripts`
+ ma machine m'indique que (c'est un dossier)
++ j'ai crée un fichier portant le nom de l'interface
++ j'ai rentrée quelques commande comme l'ip et le netmask que j'avais fait auparavant dans le TP dans le gestionnaires de réseau hotes
++ j'ai utilise `ifdown et ifup` à la fin de mon terminal connexion activée 
+
+**J'ai utilise le cours pour créer ou modifier une ip statique, je vais maintenant le faire pour les 3 autres VMs.**
+
+
