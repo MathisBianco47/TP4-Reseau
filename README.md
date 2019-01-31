@@ -137,4 +137,14 @@ j'ai modifie le fichier correspondant à l'interface donc
 
 **J'ai utilise le cours pour créer ou modifier une ip statique, je vais maintenant le faire pour les 3 autres VMs.**
 
+Je passe à la VM Cliente
+je vais faire la même manipulation que pour la VM patron
+
+sauf que je vais changer le netmask et l'ip indique plus haut 
+ 
+`10.2.0.0`
+
+Ils vont bien-sur avoir le même nom que la VM patron 
+
+`enp0s3`
 
