@@ -148,3 +148,8 @@ Ils vont bien-sur avoir le même nom que la VM patron
 
 `enp0s3`
 
+**sur certaines vm je devais changer !**
+
+Checklist (à faire sur toutes les machines) : checklist faites !
+
+# 3. Mise en place du routage statique
