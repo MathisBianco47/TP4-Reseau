@@ -161,4 +161,4 @@ NAT doit être désactivée (faite dans la partie 2 avec la Vm Patron)
 j'ai transformer ma machine en routeur (routeur1)
 j'ai active l'ipv4 avec la commande `sudo sysctl -w net.ipv4.conf.all.forwarding=1`
 
-d'abord je commande toujours par faire `su` je me mets en administrateur 
+d'abord je commence toujours par faire `su` je me mets en administrateur 
