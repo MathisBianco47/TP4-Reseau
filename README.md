@@ -153,18 +153,23 @@ Ils vont bien-sur avoir le même nom que la VM patron
 Checklist (à faire sur toutes les machines) : checklist faites !
 
 # 3. Mise en place du routage statique
+
 # 1 sur router1 :
-SELinux toujours désactivé
+
+SELinux toujours désactivé `sudo systemctl disable firewalld`
 
 NAT doit être désactivée (faite dans la partie 2 avec la Vm Patron)
 
 j'ai transformer ma machine en routeur (routeur1)
-j'ai active l'ipv4 avec la commande `sudo sysctl -w net.ipv4.conf.all.forwarding=1`
+j'ai active l'ipv4 avec la commande `sudo sysctl -w net.ipv4.conf.all.forwarding=1net.ipv4.conf.all.forwarding = 1`
 
 d'abord je commence toujours par faire `su` je me mets en administrateur 
 après avoir activer l'ipv4 j'ai mis en temporaire le pare feu de ma Vm Routeur
 
 sur ma Vm quand j'ai mis la commande `ip route show` elle est connecte
+
++ 10.1.0.0/24 dev enp0s3 proto kernel scope link src 10.1.0.254 metric 100
++ 10.2.0.0/24 dev enp0s8 proto kernel scope link src 10.2.0.254 metric 101
  
 # 2  sur client1 :
 
@@ -180,3 +185,95 @@ Soucis rencontrer sur le traceroute poiur ping à l'inverse
 
 j'ai passer à autre chose pour avancer sur le tp 
 
+Ping vers serveur1.tp4 :
+
++ 64 bytes from serveur1.tp4 (10.2.0.10): icmp_seq=1 ttl=63 time=0.936 ms
++ 64 bytes from serveur1.tp4 (10.2.0.10): icmp_seq=2 ttl=63 time=1.44 ms
+
+Ping vers client1.tp4 :
++ 64 bytes from client1.tp4 (10.1.0.10): icmp_seq=1 ttl=63 time=0.567 ms
++ 64 bytes from client1.tp4 (10.1.0.10): icmp_seq=2 ttl=63 time=1.23 ms
+
+
+# II. Spéléologie réseau
+
+# 1. ARP
+
+Vider la table ARP: `csudo ip neigh flush all`
+
+**sur client1**
+
++ table ARP : 10.1.0.1 dev enp0s3 lladdr 0a:00:27:00:00:0c DELAY
++ 10.1.0.1 : adresse réseau dans lequel ou nous sommes, ici net1
++ enp0s3 : nom de la carte réseau du client1
++ 0a:00:27:00:00:0c : adresse MAC de la carte réseau
+
+**Sur serveur1**
+
+table ARP : 10.2.0.1 dev enp0s3 lladdr 0a:00:27:00:00:12 REACHABLE
+10.2.0.1 : adresse réseau dans lequel ou nous sommes, ici net2
+enp0s3 : nom de la carte réseau du serveur1
+0a:00:27:00:00:12 : adresse MAC de la carte réseau
+
+**Sur client1**
+
+ping serveur1
+table ARP :
+
+10.1.0.1 dev enp0s3 lladdr 0a:00:27:00:00:0c REACHABLE
+10.1.0.254 dev enp0s3 lladdr 08:00:27:cb:84:f7 REACHABLE
+L'IP de notre routeur1.net1, son nom de carte réseau et sa MAC sont affichés.
+
+**Sur serveur1**
+ping client1
+
+table ARP :
+
+10.2.0.1 dev enp0s3 lladdr 0a:00:27:00:00:12 REACHABLE
+10.2.0.254 dev enp0s3 lladdr 08:00:27:67:6e:d9 STALE
+L'IP routeur1.net2
+nom de carte réseau
+sa MAC sont affichés
+
+
+# B. Manipulation 2
+
+Vider la table ARP (à faire sur toutes les machines) :
+Sur client1 on fait: `sudo ip neigh flush all`
+
+**Sur routeur1**
+
+table ARP : 10.1.0.1 dev enp0s3 lladdr 0a:00:27:00:00:0c DELAY
+10.1.0.1 : adresse du réseau dans lequel on se trouve, net1
+enp0s3 : nom de la carte réseau du routeur1
+0a:00:27:00:00:0c : adresse MAC de la carte réseau
+client1 ping serveur1
+
+**Sur routeur1**
+
+table ARP :
+10.1.0.10 dev enp0s3 lladdr 08:00:27:1b:64:47 REACHABLE
+10.1.0.1 dev enp0s3 lladdr 0a:00:27:00:00:0c REACHABLE
+10.2.0.10 dev enp0s8 lladdr 08:00:27:55:03:c7 REACHABLE
+Plusieurs changements visibles : la première ligne et la dernière.
+Cela montre que pour ping notre serveur depuis notre client, le ping est passé par notre routeur, qui a ensuite transmit le message au serveur.
+
+# C. Manipulation 3
+
+Même chose pour vider la table ARP : `sudo ip neigh flush all`
+
+Sur PC hôte
+
+Vider la table ARP : arp -d
+
+Si on attend un peu avant de réafficher la table ARP, `255.255.255.255 ff-ff-ff-ff-ff-ff` static apparait.
+
+
+# D. Manip 4
+
+Vider la table ARP (à faire sur toutes les machines) :
+ `sudo ip neigh flush all`
+
+**Sur client1**
+
+table ARP `10.1.0.1 dev enp0s3 lladdr 0a:00:27:00:00:0c DELAY
