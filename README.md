@@ -174,3 +174,9 @@ j'ai fais également la même manipulation sur le serveur 1
 
 
 # 4 test
+
+Ping reussi Client  entre Serveur
+Soucis rencontrer sur le traceroute poiur ping à l'inverse
+
+j'ai passer à autre chose pour avancer sur le tp 
+
