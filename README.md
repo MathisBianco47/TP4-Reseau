@@ -230,32 +230,46 @@ ping client1
 table ARP :
 
 10.2.0.1 dev enp0s3 lladdr 0a:00:27:00:00:12 REACHABLE
+
 10.2.0.254 dev enp0s3 lladdr 08:00:27:67:6e:d9 STALE
+
 L'IP routeur1.net2
+
 nom de carte réseau
+
 sa MAC sont affichés
 
 
 # B. Manipulation 2
 
 Vider la table ARP (à faire sur toutes les machines) :
+
 Sur client1 on fait: `sudo ip neigh flush all`
 
 **Sur routeur1**
 
 table ARP : 10.1.0.1 dev enp0s3 lladdr 0a:00:27:00:00:0c DELAY
+
 10.1.0.1 : adresse du réseau dans lequel on se trouve, net1
+
 enp0s3 : nom de la carte réseau du routeur1
+
 0a:00:27:00:00:0c : adresse MAC de la carte réseau
+
 client1 ping serveur1
 
 **Sur routeur1**
 
 table ARP :
+
 10.1.0.10 dev enp0s3 lladdr 08:00:27:1b:64:47 REACHABLE
+
 10.1.0.1 dev enp0s3 lladdr 0a:00:27:00:00:0c REACHABLE
+
 10.2.0.10 dev enp0s8 lladdr 08:00:27:55:03:c7 REACHABLE
+
 Plusieurs changements visibles : la première ligne et la dernière.
+
 Cela montre que pour ping notre serveur depuis notre client, le ping est passé par notre routeur, qui a ensuite transmit le message au serveur.
 
 # C. Manipulation 3
