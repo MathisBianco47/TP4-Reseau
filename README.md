@@ -290,4 +290,28 @@ Vider la table ARP (à faire sur toutes les machines) :
 
 **Sur client1**
 
-table ARP `10.1.0.1 dev enp0s3 lladdr 0a:00:27:00:00:0c DELAY
+table ARP `10.1.0.1 dev enp0s3 lladdr 0a:00:27:00:00:0c DELAY`
+
+# 2. Wireshark
+
+A. Interception d'ARP et ping
+
+**On routeur1**
+
+Go on Wireshark capture le trafic qui passer par l'interface choisie et capture le trafic dans un fichier ping.pcap :
+
+`sudo tcpdump -i enp0s9 -w ping.pcap`
+**Sur client1**
+
+Vider la table ARP : `sudo ip neigh flush all`
+send 4 pings à server1
+Sur **router1**
+
+quitter(CTRL + C)
+[root@routeur1 ~]# ls
+`ping.pcap`
+Sur l'hôte: password
+`ping.pcap`                                                                             100%   16KB  17.5KB/s   00:00
+
+La fatigue me prends j'abandonne pour `B. Interception d'une communication netcat`
+
