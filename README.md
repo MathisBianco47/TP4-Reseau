@@ -153,7 +153,7 @@ Ils vont bien-sur avoir le même nom que la VM patron
 Checklist (à faire sur toutes les machines) : checklist faites !
 
 # 3. Mise en place du routage statique
-
+# 1 sur router1 :
 SELinux toujours désactivé
 
 NAT doit être désactivée (faite dans la partie 2 avec la Vm Patron)
@@ -162,3 +162,15 @@ j'ai transformer ma machine en routeur (routeur1)
 j'ai active l'ipv4 avec la commande `sudo sysctl -w net.ipv4.conf.all.forwarding=1`
 
 d'abord je commence toujours par faire `su` je me mets en administrateur 
+après avoir activer l'ipv4 j'ai mis en temporaire le pare feu de ma Vm Routeur
+
+sur ma Vm quand j'ai mis la commande `ip route show` elle est connecte
+ 
+# 2  sur client1 :
+
+j'ai rencontre une difficulte en laissant le pare feu ducoup j'ai fais la même manipulation et de même sa "route" de net1 à net2
+
+j'ai fais également la même manipulation sur le serveur 1
+
+
+# 4 test
