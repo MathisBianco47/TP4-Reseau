@@ -308,7 +308,7 @@ send 4 pings à server1
 Sur **router1**
 
 quitter(CTRL + C)
-# ls
+**ls**
 `ping.pcap`
 Sur l'hôte: password
 `ping.pcap`                                                                             100%   16KB  17.5KB/s   00:00
