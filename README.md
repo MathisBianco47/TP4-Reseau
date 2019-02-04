@@ -153,3 +153,12 @@ Ils vont bien-sur avoir le même nom que la VM patron
 Checklist (à faire sur toutes les machines) : checklist faites !
 
 # 3. Mise en place du routage statique
+
+SELinux toujours désactivé
+
+NAT doit être désactivée (faite dans la partie 2 avec la Vm Patron)
+
+j'ai transformer ma machine en routeur (routeur1)
+j'ai active l'ipv4 avec la commande `sudo sysctl -w net.ipv4.conf.all.forwarding=1`
+
+d'abord je commande toujours par faire `su` je me mets en administrateur 
